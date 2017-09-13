@@ -40,6 +40,7 @@ RUN apt install -y supervisor
 ADD site.conf /etc/supervisor/conf.d/site.conf
 ADD bridged.conf /etc/supervisor/conf.d/bridged.conf
 ADD wsevent.conf /etc/supervisor/conf.d/wsevent.conf
+ADD config.js /site/websocket
 #RUN supervisord
 #RUN supervisorctl update
 RUN apt install -y nginx
