@@ -1,5 +1,5 @@
 FROM debian:jessie
-RUN apt update && apt install -y vim mysql-client libmysqlclient-dev gnupg wget git gcc g++ make python-dev libxml2-dev libxslt1-dev zlib1g-dev gettext curl wget openssl ruby ruby-dev gem 
+RUN apt update && apt-get install -y mysql-client libmysqlclient-dev gnupg wget git gcc g++ make python-dev libxml2-dev libxslt1-dev zlib1g-dev gettext curl wget openssl ruby ruby-dev gem 
 RUN git clone https://github.com/sass/sass.git
 WORKDIR /sass
 RUN gem build sass.gemspec
@@ -7,7 +7,7 @@ RUN gem install sass-*.gem
 WORKDIR /
 RUN wget -q --no-check-certificate -O- https://bootstrap.pypa.io/get-pip.py | python
 RUN wget -O- https://deb.nodesource.com/setup_4.x | bash -
-RUN apt install -y nodejs
+RUN apt-get install -y nodejs
 RUN npm install -g pleeease-cli
 
 RUN git clone https://github.com/DMOJ/site.git
@@ -47,6 +47,8 @@ RUN apt install -y nginx
 RUN rm /etc/nginx/sites-enabled/*
 ADD nginx.conf /etc/nginx/sites-enabled
 RUN service nginx reload
+#RUN service nginx start
+#RUN service supervisor start
 WORKDIR /site
 
 EXPOSE 80
