@@ -1,5 +1,5 @@
 FROM debian:jessie
-RUN apt-get update && apt-get install -y librsvg2-dev mysql-client libmysqlclient-dev gnupg wget git gcc g++ make python-dev libxml2-dev libxslt1-dev zlib1g-dev gettext curl wget openssl ruby ruby-dev gem 
+RUN apt-get update && apt-get install -y texlive-latex-base texlive-binaries imagemagick librsvg2-dev mysql-client libmysqlclient-dev gnupg wget git gcc g++ make python-dev libxml2-dev libxslt1-dev zlib1g-dev gettext curl wget openssl ruby ruby-dev gem 
 RUN git clone https://github.com/sass/sass.git
 WORKDIR /sass
 RUN gem build sass.gemspec
