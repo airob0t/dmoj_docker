@@ -1,5 +1,5 @@
 FROM debian:jessie
-RUN apt update && apt-get install -y mysql-client libmysqlclient-dev gnupg wget git gcc g++ make python-dev libxml2-dev libxslt1-dev zlib1g-dev gettext curl wget openssl ruby ruby-dev gem 
+RUN apt-get update && apt-get install -y mysql-client libmysqlclient-dev gnupg wget git gcc g++ make python-dev libxml2-dev libxslt1-dev zlib1g-dev gettext curl wget openssl ruby ruby-dev gem 
 RUN git clone https://github.com/sass/sass.git
 WORKDIR /sass
 RUN gem build sass.gemspec
@@ -36,14 +36,14 @@ RUN mkdir /uwsgi
 WORKDIR /uwsgi
 ADD uwsgi.ini /uwsgi
 RUN curl http://uwsgi.it/install | bash -s default $PWD/uwsgi
-RUN apt install -y supervisor
+RUN apt-get install -y supervisor
 ADD site.conf /etc/supervisor/conf.d/site.conf
 ADD bridged.conf /etc/supervisor/conf.d/bridged.conf
 ADD wsevent.conf /etc/supervisor/conf.d/wsevent.conf
 ADD config.js /site/websocket
 #RUN supervisord
 #RUN supervisorctl update
-RUN apt install -y nginx
+RUN apt-get install -y nginx
 RUN rm /etc/nginx/sites-enabled/*
 ADD nginx.conf /etc/nginx/sites-enabled
 RUN service nginx reload
