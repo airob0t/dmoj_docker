@@ -172,7 +172,7 @@ EVENT_DAEMON_USE = True
 
 # If you are using the defaults from the guide, it is this:
 #EVENT_DAEMON_POST = 'ws://127.0.0.1:15101/'
-EVENT_DAEMON_POST = 'ws://host:15101/'
+EVENT_DAEMON_POST = 'ws://127.0.0.1:15101/'
 
 # These are the publicly accessed interface configurations.
 # They should match those used by the script.
