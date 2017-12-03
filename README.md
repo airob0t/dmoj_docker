@@ -75,7 +75,7 @@ docker exec -it dmoj_site /bin/bash
 ## load the navbar,...
 
 ```
-sh loadata.sh
+sh loaddata.sh
 ```
 
 ## run the services
