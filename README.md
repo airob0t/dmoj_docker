@@ -72,6 +72,12 @@ sh run.sh
 docker exec -it dmoj_site /bin/bash
 ```
 
+## create the tables
+```
+python manage.py check
+python manage.py migrate
+```
+
 ## load the navbar,...
 
 ```
